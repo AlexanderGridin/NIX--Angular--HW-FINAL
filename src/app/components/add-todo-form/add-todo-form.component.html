@@ -1,0 +1,108 @@
+<div class="add-todo">
+  <h2 class="add-todo__title">Add todo</h2>
+  <form
+    action=""
+    class="add-todo-form"
+    [formGroup]="form"
+    (ngSubmit)="handleSubmit()"
+  >
+    <div class="add-todo-form__item">
+      <label class="add-todo-form__label visually-hidden" for="todo-title"
+        >Title</label
+      >
+      <input
+        class="add-todo-form__text-input"
+        formControlName="title"
+        type="text"
+        name="todo-title"
+        id="todo-title"
+        placeholder="Title"
+      />
+    </div>
+    <div class="add-todo-form__item">
+      <label class="add-todo-form__label visually-hidden" for="todo-description"
+        >Description</label
+      >
+      <textarea
+        class="add-todo-form__textarea"
+        formControlName="description"
+        name="todo-description"
+        id="todo-description"
+        cols="30"
+        rows="10"
+        placeholder="Description"
+      ></textarea>
+    </div>
+    <div class="add-todo-form__group">
+      <h3 class="add-todo-form__group-title">Tasks</h3>
+      <div class="add-todo-form__group-items" formGroupName="tasks">
+        <div
+          class="add-todo-form__item add-todo-form__item--flex"
+          *ngFor="let taskControls of tasksControls.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <ng-template [ngIf]="i === 0">
+            <input
+              class="add-todo-form__checkbox"
+              formControlName="completed"
+              type="checkbox"
+              [name]="'todo-status-' + i"
+              [id]="i"
+            />
+            <input
+              class="add-todo-form__text-input"
+              formControlName="title"
+              [id]="i"
+              type="text"
+              [name]="'todo-sub-task-' + i"
+              id="todo-sub-task"
+              placeholder="Task title"
+            />
+          </ng-template>
+
+          <ng-template [ngIf]="i > 0">
+            <input
+              class="add-todo-form__checkbox"
+              formControlName="completed"
+              type="checkbox"
+              [name]="'todo-status-' + i"
+              [id]="i"
+            />
+            <input
+              class="
+                add-todo-form__text-input add-todo-form__text-input--task-title
+              "
+              formControlName="title"
+              [id]="i"
+              [type]="'text'"
+              [name]="'todo-sub-task-' + i"
+              id="todo-sub-task"
+              placeholder="Task title"
+            />
+            <button
+              class="add-todo-form__remove-task-button"
+              type="button"
+              (click)="removeTaskControlsFromForm(i)"
+            >
+              &times;
+            </button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button
+        class="add-todo-form__add-task-button"
+        type="button"
+        (click)="pushTaskControlsToForm()"
+      >
+        Add task
+      </button>
+    </div>
+    <div class="add-todo-form__actions">
+      <button class="add-todo-form__submit-button" type="submit">
+        Add todo
+      </button>
+    </div>
+  </form>
+</div>
