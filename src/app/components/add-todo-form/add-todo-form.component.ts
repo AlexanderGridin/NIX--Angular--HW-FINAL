@@ -58,6 +58,7 @@ export class AddTodoFormComponent implements OnInit {
   public handleSubmit(): void {
     console.log(this.form.status);
     if (this.form.status === 'INVALID') {
+      this.form.markAsUntouched();
       return;
     }
 
@@ -68,11 +69,7 @@ export class AddTodoFormComponent implements OnInit {
   }
 
   public resetForm(): void {
-    this.isFormVisible = false;
     this.initForm();
-    setTimeout(() => (this.isFormVisible = true));
+    this.form.markAsTouched();
   }
 }
-
-// this.form.reset();
-// this.tasksControls.controls = [this.createTaskControls()];

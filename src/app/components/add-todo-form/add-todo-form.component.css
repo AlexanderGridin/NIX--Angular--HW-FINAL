@@ -75,9 +75,8 @@
   border-bottom: 2px solid #ddd;
 }
 
-.add-todo-form.ng-submitted.ng-untouched.ng-pristine
-  .add-todo-form__text-input.ng-invalid,
-.add-todo-form.ng-submitted .add-todo-form__text-input.ng-invalid {
+.add-todo-form.ng-untouched.ng-submitted.ng-invalid
+  .add-todo-form__text-input.ng-invalid {
   border-bottom: 2px solid #dd5044;
 }
 
