@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 
 import { Todo } from 'src/app/interfaces/todo';
-import { TodoSubTask } from 'src/app/interfaces/todo-sub-task';
+import { Task } from 'src/app/interfaces/task';
 
 @Injectable()
 export class TodoService {
+  constructor() {}
 
-  constructor() { }
-
-  public createTodo(todo: Todo): Todo{
-    return  todo;
+  public createTodo(todo: Todo): Todo {
+    return todo;
   }
 }

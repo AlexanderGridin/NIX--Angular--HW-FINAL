@@ -1,7 +1,8 @@
-import { TodoSubTask } from "./todo-sub-task";
+import { Task } from './task';
 
 export interface Todo {
-  title: string,
-  description?: string,
-  subTask?: TodoSubTask[],
+  title: string;
+  description: string;
+  completed: boolean;
+  tasks: Task[];
 }

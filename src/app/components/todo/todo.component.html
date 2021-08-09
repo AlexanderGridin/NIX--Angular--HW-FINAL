@@ -1,1 +1,18 @@
-<p>todo works!</p>
+<div class="todo" *ngIf="todo">
+  <h2 class="todo__title">{{ todo.title }}</h2>
+  <div class="todo__description" *ngIf="todo.description">
+    <h3 class="todo__subtitle">Description:</h3>
+    <div class="todo__description-content">
+      {{ todo.description }}
+    </div>
+  </div>
+  <h3 class="todo__subtitle">Tasks:</h3>
+  <ul class="todo__tasks-list">
+    <li
+      class="todo__tasks-list-item"
+      *ngFor="let task of todo.tasks; let i = index"
+    >
+      <app-task [task]="task" [index]="i"></app-task>
+    </li>
+  </ul>
+</div>

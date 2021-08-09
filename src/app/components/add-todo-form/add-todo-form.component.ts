@@ -7,6 +7,10 @@ import {
   AbstractControl,
   NgForm,
 } from '@angular/forms';
+import { Todo } from 'src/app/interfaces/todo';
+import { TodoActions } from 'src/app/store/todo/todo.actions';
+
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-add-todo-form',
@@ -17,7 +21,7 @@ export class AddTodoFormComponent implements OnInit {
   public form!: FormGroup;
   public isFormVisible: boolean = true;
 
-  constructor() {}
+  constructor(private store$: Store) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -62,7 +66,10 @@ export class AddTodoFormComponent implements OnInit {
     }
 
     const formData = this.form.value;
-    console.log(formData);
+    formData.completed = false;
+    console.log(formData as Todo);
+
+    this.store$.dispatch(TodoActions.addTodo({ todo: formData as Todo }));
 
     this.resetForm();
   }
