@@ -56,7 +56,6 @@ export class AddTodoFormComponent implements OnInit {
   }
 
   public handleSubmit(): void {
-    console.log(this.form.status);
     if (this.form.status === 'INVALID') {
       this.form.markAsUntouched();
       return;
