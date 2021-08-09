@@ -27,7 +27,7 @@ export class AddTodoFormComponent implements OnInit {
   public initForm(): void {
     this.form = new FormGroup({
       title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
+      description: new FormControl(''),
       tasks: new FormArray([]),
     });
 
