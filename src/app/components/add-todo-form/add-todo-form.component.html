@@ -5,6 +5,7 @@
     class="add-todo-form"
     [formGroup]="form"
     (ngSubmit)="handleSubmit()"
+    *ngIf="isFormVisible"
   >
     <div class="add-todo-form__item">
       <label class="add-todo-form__label visually-hidden" for="todo-title"

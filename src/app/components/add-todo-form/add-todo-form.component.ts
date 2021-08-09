@@ -5,6 +5,7 @@ import {
   Validators,
   FormArray,
   AbstractControl,
+  NgForm,
 } from '@angular/forms';
 
 @Component({
@@ -14,11 +15,13 @@ import {
 })
 export class AddTodoFormComponent implements OnInit {
   public form!: FormGroup;
+  public isFormVisible: boolean = true;
 
   constructor() {}
 
   ngOnInit(): void {
     this.initForm();
+    console.log(this.form);
   }
 
   public initForm(): void {
@@ -31,13 +34,12 @@ export class AddTodoFormComponent implements OnInit {
     this.pushTaskControlsToForm();
   }
 
-  get tasksControls(): FormArray {
-    return this.form.get('tasks') as FormArray;
-  }
-
   public pushTaskControlsToForm(): void {
     this.tasksControls.push(this.createTaskControls());
-    console.log(this.tasksControls);
+  }
+
+  get tasksControls(): FormArray {
+    return this.form.get('tasks') as FormArray;
   }
 
   public createTaskControls(): AbstractControl {
@@ -54,6 +56,7 @@ export class AddTodoFormComponent implements OnInit {
   }
 
   public handleSubmit(): void {
+    console.log(this.form.status);
     if (this.form.status === 'INVALID') {
       return;
     }
@@ -65,7 +68,11 @@ export class AddTodoFormComponent implements OnInit {
   }
 
   public resetForm(): void {
-    this.form.reset();
-    this.tasksControls.controls = [this.createTaskControls()];
+    this.isFormVisible = false;
+    this.initForm();
+    setTimeout(() => (this.isFormVisible = true));
   }
 }
+
+// this.form.reset();
+// this.tasksControls.controls = [this.createTaskControls()];

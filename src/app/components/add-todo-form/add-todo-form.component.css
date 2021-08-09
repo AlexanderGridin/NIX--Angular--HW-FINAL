@@ -75,6 +75,17 @@
   border-bottom: 2px solid #ddd;
 }
 
+.add-todo-form.ng-submitted.ng-untouched.ng-pristine
+  .add-todo-form__text-input.ng-invalid,
+.add-todo-form.ng-submitted .add-todo-form__text-input.ng-invalid {
+  border-bottom: 2px solid #dd5044;
+}
+
+/* .add-todo-form.ng-submitted.ng-untouched.ng-pristine
+  .add-todo-form__text-input.ng-invalid {
+  border-bottom: 2px solid #ddd;
+} */
+
 .add-todo-form__text-input:hover,
 .add-todo-form__text-input:focus {
   border-bottom: 2px solid #4a8af4;
@@ -92,6 +103,10 @@
   resize: none;
   padding: 7px;
   border: 2px solid #ddd;
+}
+
+.add-todo-form.ng-submitted .add-todo-form__textarea.ng-invalid {
+  border: 2px solid #dd5044;
 }
 
 .add-todo-form__textarea:hover,
