@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from 'src/app/interfaces/task';
 
 @Component({
@@ -9,6 +9,10 @@ import { Task } from 'src/app/interfaces/task';
 export class TaskComponent implements OnInit {
   @Input() task!: Task;
   @Input() index!: number;
+  @Input() parentIndex!: number;
+
+  @Output() onChangeCompleted: EventEmitter<{ task: Task; index: number }> =
+    new EventEmitter<{ task: Task; index: number }>();
 
   constructor() {}
 
@@ -16,6 +20,7 @@ export class TaskComponent implements OnInit {
 
   public handleStatusChange(): void {
     this.invertTaskCompleted();
+    this.onChangeCompleted.emit({ task: this.task, index: this.index });
   }
 
   public invertTaskCompleted(): void {

@@ -7,6 +7,11 @@
   width: 100%;
 }
 
+.todo--completed {
+  background-color: #20a464;
+  color: #fff;
+}
+
 .todo__title {
   margin-bottom: 35px;
   text-align: center;

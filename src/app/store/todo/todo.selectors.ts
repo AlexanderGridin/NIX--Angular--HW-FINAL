@@ -1,8 +1,16 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { State } from 'src/app/interfaces/state';
+import { Todo } from 'src/app/interfaces/todo';
 
 export namespace TodoSelectors {
   export const state = createFeatureSelector<State>('todo');
 
-  export const getTodos = createSelector(state, (state) => state.todos);
+  export const getAllTodos = createSelector(state, (state) => state.todos);
+
+  export const getUncomplitedTodos = createSelector(state, (state) =>
+    state.todos.filter((todo: Todo) => !todo.completed)
+  );
+  export const getComplitedTodos = createSelector(state, (state) =>
+    state.todos.filter((todo: Todo) => todo.completed)
+  );
 }

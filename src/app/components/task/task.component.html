@@ -3,10 +3,12 @@
     class="task__status-checkbox"
     type="checkbox"
     [checked]="task.completed"
-    [id]="'task-' + index"
+    [id]="'task-' + parentIndex + '-' + index"
     (change)="handleStatusChange()"
   />
-  <label [for]="'task-' + index" class="task__title">{{ task.title }}</label>
+  <label [for]="'task-' + parentIndex + '-' + index" class="task__title">{{
+    task.title
+  }}</label>
 </div>
 
 <div class="task task--completed" *ngIf="task.completed">
@@ -14,8 +16,10 @@
     class="task__status-checkbox"
     type="checkbox"
     [checked]="task.completed"
-    [id]="'task-' + index"
+    [id]="'task-' + parentIndex + '-' + index"
     (change)="handleStatusChange()"
   />
-  <label [for]="'task-' + index" class="task__title">{{ task.title }}</label>
+  <label [for]="'task-' + parentIndex + '-' + index" class="task__title">{{
+    task.title
+  }}</label>
 </div>

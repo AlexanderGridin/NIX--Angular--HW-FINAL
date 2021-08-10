@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { TodoSelectors } from 'src/app/store/todo/todo.selectors';
 import { Todo } from '../../interfaces/todo';
+import { TodoService } from 'src/app/services/todo/todo.service';
 
 @Component({
   selector: 'app-todos-list',
@@ -11,12 +10,15 @@ import { Todo } from '../../interfaces/todo';
 export class TodosListComponent implements OnInit {
   public todos!: Todo[] | undefined;
 
-  constructor(private store$: Store) {}
+  constructor(private todoServie: TodoService) {}
 
   ngOnInit(): void {
-    this.store$.select(TodoSelectors.getTodos).subscribe({
+    this.getAllTodos();
+  }
+
+  public getAllTodos(): void {
+    this.todoServie.getAllTodos().subscribe({
       next: (todos) => (this.todos = todos),
     });
-    console.log(this.todos);
   }
 }

@@ -5,12 +5,9 @@ import {
   Validators,
   FormArray,
   AbstractControl,
-  NgForm,
 } from '@angular/forms';
 import { Todo } from 'src/app/interfaces/todo';
-import { TodoActions } from 'src/app/store/todo/todo.actions';
-
-import { Store } from '@ngrx/store';
+import { TodoService } from 'src/app/services/todo/todo.service';
 
 @Component({
   selector: 'app-add-todo-form',
@@ -21,11 +18,10 @@ export class AddTodoFormComponent implements OnInit {
   public form!: FormGroup;
   public isFormVisible: boolean = true;
 
-  constructor(private store$: Store) {}
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
     this.initForm();
-    console.log(this.form);
   }
 
   public initForm(): void {
@@ -66,11 +62,9 @@ export class AddTodoFormComponent implements OnInit {
     }
 
     const formData = this.form.value;
-    formData.completed = false;
-    console.log(formData as Todo);
+    const todo = this.todoService.createTodoFromFormData(formData);
 
-    this.store$.dispatch(TodoActions.addTodo({ todo: formData as Todo }));
-
+    this.todoService.saveTodoInStore(todo);
     this.resetForm();
   }
 
