@@ -12,6 +12,8 @@ import { TodosListComponent } from './components/todos-list/todos-list.component
 
 import { todoReducer } from './store/todo/todo.reducer';
 import { TaskComponent } from './components/task/task.component';
+import { UncompletedTodosListComponent } from './components/uncompleted-todos-list/uncompleted-todos-list.component';
+import { CompletedTodosListComponent } from './components/completed-todos-list/completed-todos-list.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { TaskComponent } from './components/task/task.component';
     AddTodoFormComponent,
     TodosListComponent,
     TaskComponent,
+    UncompletedTodosListComponent,
+    CompletedTodosListComponent,
   ],
   imports: [
     BrowserModule,

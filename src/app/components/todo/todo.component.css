@@ -8,8 +8,7 @@
 }
 
 .todo--completed {
-  background-color: #20a464;
-  color: #fff;
+  opacity: 0.5;
 }
 
 .todo__title {

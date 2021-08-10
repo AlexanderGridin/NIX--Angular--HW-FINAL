@@ -14,6 +14,7 @@ const INITIAL_TD: Todo = {
     },
   ],
   completed: false,
+  id: 1628560439036,
 };
 
 const initialState: State = {
@@ -33,10 +34,17 @@ const _todoReducer = createReducer(
     };
   }),
 
-  on(TodoActions.updateTodo, (state, { todo, index }) => {
+  on(TodoActions.updateTodo, (state, { todo }) => {
     let todos: Todo[] = [...state.todos];
     todos = [...todos];
-    todos[index] = todo;
+
+    todos = todos.map((todoFromStore) => {
+      if (todoFromStore.id === todo.id) {
+        return todo;
+      }
+
+      return todoFromStore;
+    });
 
     return {
       ...state,

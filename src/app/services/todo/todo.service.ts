@@ -6,7 +6,6 @@ import { TodoActions } from 'src/app/store/todo/todo.actions';
 import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
 import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
 import { TodoSelectors } from 'src/app/store/todo/todo.selectors';
 
 @Injectable()
@@ -17,6 +16,7 @@ export class TodoService {
     let createdTodo: Todo = {
       ...formData,
       completed: false,
+      id: new Date().getTime(),
     };
     return createdTodo;
   }
@@ -26,7 +26,7 @@ export class TodoService {
   }
 
   public updateTodoInStore(todo: Todo, index: number): void {
-    this.store$.dispatch(TodoActions.updateTodo({ todo, index }));
+    this.store$.dispatch(TodoActions.updateTodo({ todo }));
   }
 
   public getAllTodos(): Observable<Todo[]> {

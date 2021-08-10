@@ -48,7 +48,7 @@
               formControlName="completed"
               type="checkbox"
               [name]="'todo-status-' + i"
-              [id]="i"
+              [id]="'todo-status-' + i"
             />
             <input
               class="add-todo-form__text-input"
@@ -56,7 +56,7 @@
               [id]="i"
               type="text"
               [name]="'todo-sub-task-' + i"
-              id="todo-sub-task"
+              [id]="'todo-sub-task-' + i"
               placeholder="Task title"
             />
           </ng-template>
@@ -67,7 +67,7 @@
               formControlName="completed"
               type="checkbox"
               [name]="'todo-status-' + i"
-              [id]="i"
+              [id]="'todo-status-' + i"
             />
             <input
               class="
@@ -77,7 +77,7 @@
               [id]="i"
               [type]="'text'"
               [name]="'todo-sub-task-' + i"
-              id="todo-sub-task"
+              [id]="'todo-sub-task-' + i"
               placeholder="Task title"
             />
             <button

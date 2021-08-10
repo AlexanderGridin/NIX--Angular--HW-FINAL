@@ -1,7 +1,13 @@
 <ul class="todo-list">
+  <li class="todo-list__item" *ngFor="let todo of todos; let i = index">
+    <app-todo [todo]="todo" [index]="i"></app-todo>
+  </li>
+</ul>
+
+<!-- <ul class="todo-list">
   <ng-template ngFor let-todo [ngForOf]="todos" let-i="index">
     <li class="todo-list__item" *ngIf="!todo.completed">
       <app-todo [todo]="todo" [index]="i"></app-todo>
     </li>
   </ng-template>
-</ul>
+</ul> -->
