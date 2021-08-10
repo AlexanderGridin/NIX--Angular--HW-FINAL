@@ -1,9 +1,10 @@
 .todo-list {
   margin: 0;
-  padding: 0 15px;
+  padding: 0;
   list-style: none;
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   margin: 0 -10px;
 }
 

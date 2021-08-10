@@ -1,0 +1,11 @@
+.app {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 35px 15px;
+}
+
+.app__item {
+  flex-basis: 33%;
+  padding: 0 10px;
+}
