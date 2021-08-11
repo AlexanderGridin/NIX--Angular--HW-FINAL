@@ -25,7 +25,7 @@ export class TodoService {
     this.store$.dispatch(TodoActions.addTodo({ todo }));
   }
 
-  public updateTodoInStore(todo: Todo, index: number): void {
+  public updateTodoInStore(todo: Todo): void {
     this.store$.dispatch(TodoActions.updateTodo({ todo }));
   }
 

@@ -25,6 +25,6 @@ export class TodoComponent implements OnInit {
   }): void {
     this.todo = this.todoService.updateTodoTaskStatus(this.todo, task, index);
     this.todo = this.todoService.checkIsTodoCompleted(this.todo);
-    this.todoService.updateTodoInStore(this.todo, this.index);
+    this.todoService.updateTodoInStore(this.todo);
   }
 }

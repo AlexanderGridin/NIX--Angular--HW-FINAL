@@ -69,7 +69,9 @@ export class AddTodoFormComponent implements OnInit {
   }
 
   public resetForm(): void {
-    this.initForm();
+    this.form.reset();
+    this.tasksControls.clear();
+    this.pushTaskControlsToForm();
     this.form.markAsTouched();
   }
 }
