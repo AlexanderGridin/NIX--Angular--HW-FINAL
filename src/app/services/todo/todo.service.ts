@@ -1,16 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { Store } from '@ngrx/store';
-import { TodoActions } from 'src/app/store/todo/todo.actions';
-
 import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
-import { from, Observable } from 'rxjs';
-import { TodoSelectors } from 'src/app/store/todo/todo.selectors';
 
 @Injectable()
 export class TodoService {
-  constructor(private store$: Store) {}
+  constructor() {}
 
   public createTodoFromFormData(formData: Todo): Todo {
     let tasks: Task[] = [...formData.tasks];
@@ -38,8 +33,11 @@ export class TodoService {
     return updatedTodo;
   }
 
-  public checkIsTodoCompleted(todo: Todo): Todo {
-    let result = todo.tasks.reduce((prev, task) => prev + +task.completed, 0);
+  public checkIsCompletedTodo(todo: Todo): Todo {
+    let result: number = todo.tasks.reduce(
+      (prev, task) => prev + +task.completed,
+      0
+    );
     let updatedTodo: Todo;
 
     if (result < todo.tasks.length) {
@@ -47,6 +45,7 @@ export class TodoService {
         ...todo,
         completed: false,
       };
+
       return updatedTodo;
     }
 

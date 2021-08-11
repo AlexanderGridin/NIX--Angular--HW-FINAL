@@ -34,10 +34,10 @@ export class AddTodoFormComponent implements OnInit {
       tasks: new FormArray([]),
     });
 
-    this.pushTaskControlsToForm();
+    this.pushTaskControlsIntoForm();
   }
 
-  public pushTaskControlsToForm(): void {
+  public pushTaskControlsIntoForm(): void {
     this.tasksControls.push(this.createTaskControls());
   }
 
@@ -74,7 +74,7 @@ export class AddTodoFormComponent implements OnInit {
   public resetForm(): void {
     this.form.reset();
     this.tasksControls.clear();
-    this.pushTaskControlsToForm();
+    this.pushTaskControlsIntoForm();
     this.form.markAsTouched();
   }
 }
