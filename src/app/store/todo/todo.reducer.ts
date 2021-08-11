@@ -23,7 +23,7 @@ const initialState: State = {
 
 const _todoReducer = createReducer(
   initialState,
-  on(TodoActions.addTodo, (state, { todo }) => {
+  on(TodoActions.addTodo, (state: State, { todo }: { todo: Todo }) => {
     let todos: Todo[] = [...state.todos];
 
     todos.push(todo as Todo);
@@ -34,11 +34,11 @@ const _todoReducer = createReducer(
     };
   }),
 
-  on(TodoActions.updateTodo, (state, { todo }) => {
+  on(TodoActions.updateTodo, (state: State, { todo }: { todo: Todo }) => {
     let todos: Todo[] = [...state.todos];
     todos = [...todos];
 
-    todos = todos.map((todoFromStore) => {
+    todos = todos.map((todoFromStore: Todo) => {
       if (todoFromStore.id === todo.id) {
         return todo;
       }

@@ -17,7 +17,7 @@ export class CompletedTodosListComponent implements OnInit {
   }
 
   public getCompoletedTodos(): void {
-    this.todoServie.getCompletedTodosFromStore().subscribe({
+    this.todoServie.getCompletedTodosFromState().subscribe({
       next: (todos) => (this.todos = todos),
     });
   }

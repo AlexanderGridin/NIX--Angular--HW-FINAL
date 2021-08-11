@@ -64,7 +64,7 @@ export class AddTodoFormComponent implements OnInit {
     const formData = this.form.value;
     const todo = this.todoService.createTodoFromFormData(formData);
 
-    this.todoService.saveTodoInStore(todo);
+    this.todoService.saveTodoInState(todo);
     this.resetForm();
   }
 

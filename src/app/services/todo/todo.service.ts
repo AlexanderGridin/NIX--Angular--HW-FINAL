@@ -5,7 +5,7 @@ import { TodoActions } from 'src/app/store/todo/todo.actions';
 
 import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { TodoSelectors } from 'src/app/store/todo/todo.selectors';
 
 @Injectable()
@@ -13,19 +13,23 @@ export class TodoService {
   constructor(private store$: Store) {}
 
   public createTodoFromFormData(formData: Todo): Todo {
-    let createdTodo: Todo = {
+    let tasks: Task[] = [...formData.tasks];
+
+    let todo: Todo = {
       ...formData,
+      tasks,
       completed: false,
       id: new Date().getTime(),
     };
-    return createdTodo;
+
+    return todo;
   }
 
-  public saveTodoInStore(todo: Todo): void {
+  public saveTodoInState(todo: Todo): void {
     this.store$.dispatch(TodoActions.addTodo({ todo }));
   }
 
-  public updateTodoInStore(todo: Todo): void {
+  public updateTodoInState(todo: Todo): void {
     this.store$.dispatch(TodoActions.updateTodo({ todo }));
   }
 
@@ -33,11 +37,11 @@ export class TodoService {
     return this.store$.select(TodoSelectors.getAllTodos);
   }
 
-  public getCompletedTodosFromStore(): Observable<Todo[]> {
+  public getCompletedTodosFromState(): Observable<Todo[]> {
     return this.store$.select(TodoSelectors.getComplitedTodos);
   }
 
-  public getUncomplitedTodosFromStore(): Observable<Todo[]> {
+  public getUncomplitedTodosFromState(): Observable<Todo[]> {
     return this.store$.select(TodoSelectors.getUncomplitedTodos);
   }
 
