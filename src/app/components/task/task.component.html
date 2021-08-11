@@ -1,15 +1,4 @@
-<div class="task" *ngIf="!task.completed">
-  <input
-    class="task__status-checkbox"
-    type="checkbox"
-    [checked]="task.completed"
-    [id]="'task-' + task.id"
-    (change)="handleIsCompletedChange()"
-  />
-  <label [for]="'task-' + task.id" class="task__title">{{ task.title }}</label>
-</div>
-
-<div class="task task--completed" *ngIf="task.completed">
+<div class="task" [ngClass]="{ 'task--completed': task.completed }">
   <input
     class="task__status-checkbox"
     type="checkbox"

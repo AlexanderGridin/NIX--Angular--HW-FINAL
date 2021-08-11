@@ -1,28 +1,4 @@
-<div class="todo" *ngIf="todo && !todo.completed">
-  <h2 class="todo__title">{{ todo.title }}</h2>
-  <div class="todo__description" *ngIf="todo.description">
-    <h3 class="todo__subtitle">Description:</h3>
-    <div class="todo__description-content">
-      {{ todo.description }}
-    </div>
-  </div>
-  <h3 class="todo__subtitle">Tasks:</h3>
-  <ul class="todo__tasks-list">
-    <li
-      class="todo__tasks-list-item"
-      *ngFor="let task of todo.tasks; let i = index"
-    >
-      <app-task
-        [task]="task"
-        [index]="i"
-        [parentIndex]="index"
-        (onChangeCompleted)="handleTaskCompletedChange($event)"
-      ></app-task>
-    </li>
-  </ul>
-</div>
-
-<div class="todo todo--completed" *ngIf="todo && todo.completed">
+<div class="todo" [ngClass]="{ 'todo--completed': todo.completed }">
   <h2 class="todo__title">{{ todo.title }}</h2>
   <div class="todo__description" *ngIf="todo.description">
     <h3 class="todo__subtitle">Description:</h3>
