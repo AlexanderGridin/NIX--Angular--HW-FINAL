@@ -3,6 +3,7 @@ import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
 import { TodoService } from 'src/app/services/todo/todo.service';
 import { TodoStateService } from 'src/app/services/todo-state/todo-state.service';
+import { TaskService } from 'src/app/services/task/task.service';
 
 @Component({
   selector: 'app-todo',
@@ -15,20 +16,20 @@ export class TodoComponent implements OnInit {
 
   constructor(
     private todoService: TodoService,
-    private todoStateService: TodoStateService
+    private todoStateService: TodoStateService,
+    private taskService: TaskService
   ) {}
 
   ngOnInit(): void {}
 
-  public handleTaskCompletedChange({
-    task,
-    index,
-  }: {
-    task: Task;
-    index: number;
-  }): void {
-    this.todo = this.todoService.updateTodoTaskStatus(this.todo, task, index);
-    this.todo = this.todoService.checkIsCompletedTodo(this.todo);
-    this.todoStateService.updateTodo(this.todo);
+  public handleTaskCompletedChange(task: Task): void {
+    let updatedTask: Task = this.taskService.updateTask(task);
+    let updatedTodo: Todo = this.todoService.updateTaskInTodo(
+      this.todo,
+      updatedTask
+    );
+
+    updatedTodo = this.todoService.checkIsCompletedTodo(updatedTodo);
+    this.todoStateService.updateTodo(updatedTodo);
   }
 }

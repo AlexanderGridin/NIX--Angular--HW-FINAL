@@ -3,12 +3,17 @@ import { Injectable } from '@angular/core';
 import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
 
+import { TaskService } from '../task/task.service';
+
 @Injectable()
 export class TodoService {
-  constructor() {}
+  constructor(private taskService: TaskService) {}
 
   public createTodoFromFormData(formData: Todo): Todo {
-    let tasks: Task[] = [...formData.tasks];
+    let tasks: Task[] = [...formData.tasks].map(
+      (task: Task, i: number): Task =>
+        this.taskService.createTaskFromFormData(task, i)
+    );
 
     let todo: Todo = {
       ...formData,
@@ -17,7 +22,28 @@ export class TodoService {
       id: new Date().getTime(),
     };
 
+    console.log(todo);
+
     return todo;
+  }
+
+  public updateTaskInTodo(todo: Todo, taskForUpdate: Task): Todo {
+    let tasks: Task[] = [...todo.tasks];
+
+    let updatedTasks: Task[] = tasks.map((task: Task) => {
+      if (task.id === taskForUpdate.id) {
+        return taskForUpdate;
+      }
+
+      return task;
+    });
+
+    let updatedTodo: Todo = {
+      ...todo,
+      tasks: updatedTasks,
+    };
+
+    return updatedTodo;
   }
 
   public updateTodoTaskStatus(todo: Todo, task: Task, taskIndex: number): Todo {

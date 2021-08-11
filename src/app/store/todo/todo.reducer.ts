@@ -11,6 +11,7 @@ const INITIAL_TD: Todo = {
     {
       title: 'Initial task',
       completed: false,
+      id: 1628560439037,
     },
   ],
   completed: false,

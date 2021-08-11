@@ -4,7 +4,7 @@
     type="checkbox"
     [checked]="task.completed"
     [id]="'task-' + parentIndex + '-' + index"
-    (change)="handleStatusChange()"
+    (change)="handleIsCompletedChange()"
   />
   <label [for]="'task-' + parentIndex + '-' + index" class="task__title">{{
     task.title
@@ -17,7 +17,7 @@
     type="checkbox"
     [checked]="task.completed"
     [id]="'task-' + parentIndex + '-' + index"
-    (change)="handleStatusChange()"
+    (change)="handleIsCompletedChange()"
   />
   <label [for]="'task-' + parentIndex + '-' + index" class="task__title">{{
     task.title
