@@ -6,8 +6,8 @@ import {
   FormArray,
   AbstractControl,
 } from '@angular/forms';
-import { Todo } from 'src/app/interfaces/todo';
 import { TodoService } from 'src/app/services/todo/todo.service';
+import { TodoStateService } from 'src/app/services/todo-state/todo-state.service';
 
 @Component({
   selector: 'app-add-todo-form',
@@ -18,7 +18,10 @@ export class AddTodoFormComponent implements OnInit {
   public form!: FormGroup;
   public isFormVisible: boolean = true;
 
-  constructor(private todoService: TodoService) {}
+  constructor(
+    private todoService: TodoService,
+    private todoStateService: TodoStateService
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -64,7 +67,7 @@ export class AddTodoFormComponent implements OnInit {
     const formData = this.form.value;
     const todo = this.todoService.createTodoFromFormData(formData);
 
-    this.todoService.saveTodoInState(todo);
+    this.todoStateService.saveTodo(todo);
     this.resetForm();
   }
 

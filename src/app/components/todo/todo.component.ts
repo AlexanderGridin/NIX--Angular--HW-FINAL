@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
 import { TodoService } from 'src/app/services/todo/todo.service';
+import { TodoStateService } from 'src/app/services/todo-state/todo-state.service';
 
 @Component({
   selector: 'app-todo',
@@ -12,7 +13,10 @@ export class TodoComponent implements OnInit {
   @Input() todo!: Todo;
   @Input() index!: number;
 
-  constructor(private todoService: TodoService) {}
+  constructor(
+    private todoService: TodoService,
+    private todoStateService: TodoStateService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -25,6 +29,6 @@ export class TodoComponent implements OnInit {
   }): void {
     this.todo = this.todoService.updateTodoTaskStatus(this.todo, task, index);
     this.todo = this.todoService.checkIsTodoCompleted(this.todo);
-    this.todoService.updateTodoInState(this.todo);
+    this.todoStateService.updateTodo(this.todo);
   }
 }

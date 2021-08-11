@@ -25,26 +25,6 @@ export class TodoService {
     return todo;
   }
 
-  public saveTodoInState(todo: Todo): void {
-    this.store$.dispatch(TodoActions.addTodo({ todo }));
-  }
-
-  public updateTodoInState(todo: Todo): void {
-    this.store$.dispatch(TodoActions.updateTodo({ todo }));
-  }
-
-  public getAllTodos(): Observable<Todo[]> {
-    return this.store$.select(TodoSelectors.getAllTodos);
-  }
-
-  public getCompletedTodosFromState(): Observable<Todo[]> {
-    return this.store$.select(TodoSelectors.getComplitedTodos);
-  }
-
-  public getUncomplitedTodosFromState(): Observable<Todo[]> {
-    return this.store$.select(TodoSelectors.getUncomplitedTodos);
-  }
-
   public updateTodoTaskStatus(todo: Todo, task: Task, taskIndex: number): Todo {
     let { tasks } = todo;
     tasks = [...tasks];
