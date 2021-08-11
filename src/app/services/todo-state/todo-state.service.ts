@@ -29,4 +29,8 @@ export class TodoStateService {
   public getUncomplitedTodos(): Observable<Todo[]> {
     return this.store$.select(TodoSelectors.getUncomplitedTodos);
   }
+
+  public removeTodo(todo: Todo): void {
+    this.store$.dispatch(TodoActions.removeTodo({ todo }));
+  }
 }

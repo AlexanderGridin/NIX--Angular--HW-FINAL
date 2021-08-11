@@ -2,12 +2,18 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 25px 15px;
+  padding: 45px 15px 25px;
   max-width: 400px;
   width: 100%;
+  position: relative;
 }
 
 .todo--completed {
+  border: 1px solid #20a464;
+}
+
+.todo--completed .todo__header,
+.todo--completed .todo__body {
   opacity: 0.5;
 }
 
@@ -36,4 +42,35 @@
 
 .todo__tasks-list-item + .todo__tasks-list-item {
   margin-top: 10px;
+}
+
+.todo__footer {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.todo__delete-button {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #dd5044;
+  background-color: #dd5044;
+  color: #fff;
+  padding: 0;
+  font-size: 1rem;
+  font-family: inherit;
+  border-radius: 5px;
+  transition: 0.4s;
+  font-size: 2rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.todo__delete-button:hover {
+  background-color: #fff;
+  color: #dd5044;
+  cursor: pointer;
 }

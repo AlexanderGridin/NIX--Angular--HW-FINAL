@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
 import { TodoService } from 'src/app/services/todo/todo.service';
@@ -13,6 +13,8 @@ import { TaskService } from 'src/app/services/task/task.service';
 export class TodoComponent implements OnInit {
   @Input() todo!: Todo;
   @Input() index!: number;
+
+  @Output() onRemove: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   constructor(
     private todoService: TodoService,
@@ -31,5 +33,9 @@ export class TodoComponent implements OnInit {
 
     updatedTodo = this.todoService.checkIsCompletedTodo(updatedTodo);
     this.todoStateService.updateTodo(updatedTodo);
+  }
+
+  public handleRemoving(): void {
+    this.todoStateService.removeTodo(this.todo);
   }
 }
