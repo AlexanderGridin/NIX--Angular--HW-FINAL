@@ -16,6 +16,7 @@ import { UncompletedTodosListComponent } from './components/uncompleted-todos-li
 import { CompletedTodosListComponent } from './components/completed-todos-list/completed-todos-list.component';
 import { TodoStateService } from './services/todo-state/todo-state.service';
 import { TaskService } from './services/task/task.service';
+import { GenerateIdService } from './services/generate-id/generate-id.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { TaskService } from './services/task/task.service';
     ReactiveFormsModule,
     StoreModule.forRoot({ todo: todoReducer }),
   ],
-  providers: [TodoService, TodoStateService, TaskService],
+  providers: [TodoService, TodoStateService, TaskService, GenerateIdService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

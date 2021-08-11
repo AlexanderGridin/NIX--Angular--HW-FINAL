@@ -4,10 +4,14 @@ import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
 
 import { TaskService } from '../task/task.service';
+import { GenerateIdService } from '../generate-id/generate-id.service';
 
 @Injectable()
 export class TodoService {
-  constructor(private taskService: TaskService) {}
+  constructor(
+    private taskService: TaskService,
+    private generateIdService: GenerateIdService
+  ) {}
 
   public createTodoFromFormData(formData: Todo): Todo {
     let tasks: Task[] = [...formData.tasks].map(
@@ -19,10 +23,8 @@ export class TodoService {
       ...formData,
       tasks,
       completed: false,
-      id: new Date().getTime(),
+      id: this.generateIdService.generateId(),
     };
-
-    console.log(todo);
 
     return todo;
   }

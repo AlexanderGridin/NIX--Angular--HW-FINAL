@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Task } from 'src/app/interfaces/task';
+import { GenerateIdService } from '../generate-id/generate-id.service';
 
 @Injectable()
 export class TaskService {
-  constructor() {}
+  constructor(private generateIdService: GenerateIdService) {}
 
-  public createTaskFromFormData(
-    formData: Task,
-    idGenerationSeed: number = 0
-  ): Task {
+  public createTaskFromFormData(formData: Task, taskIndex: number = 0): Task {
     let createdTask: Task = {
       ...formData,
-      id: new Date().getTime() + ++idGenerationSeed,
+      id: this.generateIdService.generateIdWithSeed(taskIndex),
     };
 
     return createdTask;
