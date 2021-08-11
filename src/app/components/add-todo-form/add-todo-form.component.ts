@@ -16,7 +16,6 @@ import { TodoStateService } from 'src/app/services/todo-state/todo-state.service
 })
 export class AddTodoFormComponent implements OnInit {
   public form!: FormGroup;
-  public isFormVisible: boolean = true;
 
   constructor(
     private todoService: TodoService,
@@ -47,7 +46,7 @@ export class AddTodoFormComponent implements OnInit {
 
   public createTaskControls(): AbstractControl {
     const taskFormGroup = new FormGroup({
-      completed: new FormControl(false),
+      isCompleted: new FormControl(false),
       title: new FormControl('', [Validators.required]),
     });
 

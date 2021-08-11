@@ -13,11 +13,12 @@ export namespace TodoSelectors {
   export const getUncomplitedTodos = createSelector(
     state,
     (state: State): Todo[] =>
-      state.todos.filter((todo: Todo) => !todo.completed)
+      state.todos.filter((todo: Todo) => !todo.isCompleted)
   );
 
   export const getComplitedTodos = createSelector(
     state,
-    (state: State): Todo[] => state.todos.filter((todo: Todo) => todo.completed)
+    (state: State): Todo[] =>
+      state.todos.filter((todo: Todo) => todo.isCompleted)
   );
 }

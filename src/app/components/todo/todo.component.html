@@ -1,4 +1,4 @@
-<div class="todo" [ngClass]="{ 'todo--completed': todo.completed }">
+<div class="todo" [ngClass]="{ 'todo--completed': todo.isCompleted }">
   <div class="todo__header">
     <h2 class="todo__title">{{ todo.title }}</h2>
   </div>
@@ -18,9 +18,7 @@
       >
         <app-task
           [task]="task"
-          [index]="i"
-          [parentIndex]="index"
-          (onChangeCompleted)="handleTaskCompletedChange($event)"
+          (onChangeIsCompleted)="handleTaskCompletedChange($event)"
         ></app-task>
       </li>
     </ul>

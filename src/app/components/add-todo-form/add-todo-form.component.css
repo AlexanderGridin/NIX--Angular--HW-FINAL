@@ -170,6 +170,7 @@
   display: flex;
   align-items: center;
   transition: 0.4s;
+  margin-top: 15px;
 }
 
 .add-todo-form__add-task-button:hover {
@@ -210,7 +211,7 @@
   border-bottom: 2px solid #ddd;
 }
 
-.add-todo-form__actions {
+.add-todo-form__footer {
   text-align: center;
   padding-top: 15px;
 }

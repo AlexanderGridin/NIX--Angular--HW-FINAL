@@ -22,7 +22,7 @@ export class TodoService {
     let todo: Todo = {
       ...formData,
       tasks,
-      completed: false,
+      isCompleted: false,
       id: this.generateIdService.generateId(),
     };
 
@@ -48,30 +48,19 @@ export class TodoService {
     return updatedTodo;
   }
 
-  public updateTodoTaskStatus(todo: Todo, task: Task, taskIndex: number): Todo {
-    let { tasks } = todo;
-    tasks = [...tasks];
-    tasks[taskIndex] = task;
-
-    let updatedTodo: Todo = {
-      ...todo,
-      tasks,
-    };
-
-    return updatedTodo;
-  }
-
   public checkIsCompletedTodo(todo: Todo): Todo {
-    let result: number = todo.tasks.reduce(
-      (prev, task) => prev + +task.completed,
+    let totalTasks: number = todo.tasks.length;
+    let totalCompletedTasks: number = todo.tasks.reduce(
+      (accumulator, task) => accumulator + +task.isCompleted,
       0
     );
     let updatedTodo: Todo;
 
-    if (result < todo.tasks.length) {
+    if (totalCompletedTasks < totalTasks) {
+      // Сперва может показаться, что можно было бы сделать просто return todo; Но в этом случае тудушка из колонки завершенных туду не будет перемещаться в колонку активных туду.
       updatedTodo = {
         ...todo,
-        completed: false,
+        isCompleted: false,
       };
 
       return updatedTodo;
@@ -79,7 +68,7 @@ export class TodoService {
 
     updatedTodo = {
       ...todo,
-      completed: true,
+      isCompleted: true,
     };
 
     return updatedTodo;

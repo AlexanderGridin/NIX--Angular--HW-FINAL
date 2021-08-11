@@ -1,5 +1,5 @@
 export interface Task {
   title: string;
-  completed: boolean;
+  isCompleted: boolean;
   id?: number; // фикс, чтобы не падало приложение. Убрать!!
 }

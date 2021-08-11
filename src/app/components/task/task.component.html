@@ -1,8 +1,8 @@
-<div class="task" [ngClass]="{ 'task--completed': task.completed }">
+<div class="task" [ngClass]="{ 'task--completed': task.isCompleted }">
   <input
     class="task__status-checkbox"
     type="checkbox"
-    [checked]="task.completed"
+    [checked]="task.isCompleted"
     [id]="'task-' + task.id"
     (change)="handleIsCompletedChange()"
   />

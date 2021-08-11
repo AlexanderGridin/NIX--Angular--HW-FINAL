@@ -9,10 +9,8 @@ import { TaskService } from 'src/app/services/task/task.service';
 })
 export class TaskComponent implements OnInit {
   @Input() task!: Task;
-  @Input() index!: number;
-  @Input() parentIndex!: number;
 
-  @Output() onChangeCompleted: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() onChangeIsCompleted: EventEmitter<Task> = new EventEmitter<Task>();
 
   constructor(private taskService: TaskService) {}
 
@@ -20,6 +18,6 @@ export class TaskComponent implements OnInit {
 
   public handleIsCompletedChange(): void {
     let updatedTask: Task = this.taskService.invertIsCompleted(this.task);
-    this.onChangeCompleted.emit(updatedTask);
+    this.onChangeIsCompleted.emit(updatedTask);
   }
 }

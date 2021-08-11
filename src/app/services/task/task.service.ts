@@ -24,11 +24,11 @@ export class TaskService {
   }
 
   public invertIsCompleted(task: Task): Task {
-    let { completed } = task;
+    let { isCompleted } = task;
 
     let updatedTask: Task = {
       ...task,
-      completed: !completed,
+      isCompleted: !isCompleted,
     };
 
     return updatedTask;

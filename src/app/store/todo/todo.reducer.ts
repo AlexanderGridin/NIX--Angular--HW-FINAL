@@ -10,11 +10,11 @@ const INITIAL_TD: Todo = {
   tasks: [
     {
       title: 'Initial task',
-      completed: false,
+      isCompleted: false,
       id: 1628560439037,
     },
   ],
-  completed: false,
+  isCompleted: false,
   id: 1628560439036,
 };
 
