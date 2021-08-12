@@ -10,15 +10,17 @@ import { TodosStateService } from 'src/app/services/todos-state/todos-state.serv
 export class CompletedTodosListComponent implements OnInit {
   public completedTodos!: Todo[];
 
-  constructor(private todosStateServices: TodosStateService) {}
+  constructor(private todosStateService: TodosStateService) {}
 
   ngOnInit(): void {
     this.getCompoletedTodos();
   }
 
   public getCompoletedTodos(): void {
-    this.todosStateServices.getCompletedTodos().subscribe({
-      next: (todos) => (this.completedTodos = todos),
+    this.todosStateService.getCompletedTodos().subscribe({
+      next: (todos: Todo[]): void => {
+        this.completedTodos = todos;
+      },
     });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
 import { TodosService } from 'src/app/services/todos/todos.service';
@@ -10,7 +10,7 @@ import { TasksService } from 'src/app/services/tasks/tasks.service';
   templateUrl: './todo-card.component.html',
   styleUrls: ['./todo-card.component.css'],
 })
-export class TodoCardComponent implements OnInit {
+export class TodoCardComponent {
   @Input() todo!: Todo;
 
   @Output() onRemove: EventEmitter<Todo> = new EventEmitter<Todo>();
@@ -20,8 +20,6 @@ export class TodoCardComponent implements OnInit {
     private todosStateService: TodosStateService,
     private tasksService: TasksService
   ) {}
-
-  ngOnInit(): void {}
 
   public handleTaskCompletedChange(task: Task): void {
     let updatedTask: Task = this.tasksService.updateTask(task);

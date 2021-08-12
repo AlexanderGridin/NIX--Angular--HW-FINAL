@@ -18,7 +18,9 @@ export class UncompletedTodosListComponent implements OnInit {
 
   public getUncompletedTodos(): void {
     this.todosStateService.getUncomplitedTodos().subscribe({
-      next: (todos) => (this.todos = todos),
+      next: (todos: Todo[]): void => {
+        this.todos = todos;
+      },
     });
   }
 }

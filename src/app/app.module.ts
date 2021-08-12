@@ -9,8 +9,6 @@ import { TodosStateService } from './services/todos-state/todos-state.service';
 import { TasksService } from './services/tasks/tasks.service';
 import { GenerateIdService } from './services/generate-id/generate-id.service';
 
-import { ROUTES } from './constants/routes';
-
 import { AppComponent } from './app.component';
 import { TodoCardComponent } from './components/todo-card/todo-card.component';
 import { AddTodoFormComponent } from './components/add-todo-form/add-todo-form.component';
@@ -34,6 +32,8 @@ import { UncompletedTodosPageComponent } from './pages/uncompleted-todos-page/un
 import { AllTodosPageComponent } from './pages/all-todos-page/all-todos-page.component';
 
 import { todosReducer } from './store/todos/todos.reducer';
+
+import { ROUTES } from './constants/routes';
 
 @NgModule({
   declarations: [

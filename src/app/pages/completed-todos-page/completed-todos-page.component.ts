@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-completed-todos-page',
   templateUrl: './completed-todos-page.component.html',
-  styleUrls: ['./completed-todos-page.component.css']
+  styleUrls: ['./completed-todos-page.component.css'],
 })
-export class CompletedTodosPageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class CompletedTodosPageComponent {
+  constructor() {}
 }
