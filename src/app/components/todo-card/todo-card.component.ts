@@ -1,4 +1,10 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  Input,
+  EventEmitter,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
 import { TodosService } from 'src/app/services/todos/todos.service';
@@ -9,6 +15,7 @@ import { TasksService } from 'src/app/services/tasks/tasks.service';
   selector: 'app-todo-card',
   templateUrl: './todo-card.component.html',
   styleUrls: ['./todo-card.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoCardComponent {
   @Input() todo!: Todo;
