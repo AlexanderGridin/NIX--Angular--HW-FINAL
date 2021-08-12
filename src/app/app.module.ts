@@ -28,7 +28,7 @@ import { MessageComponent } from './components/message/message.component';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CompletedTodosPageComponent } from './pages/completed-todos-page/completed-todos-page.component';
-import { UncompletedTodosPageComponent } from './pages/uncompleted-todos-page/uncompleted-todos-page.component';
+import { ActiveTodosPageComponent } from './pages/active-todos-page/active-todos-page.component';
 import { AllTodosPageComponent } from './pages/all-todos-page/all-todos-page.component';
 
 import { todosReducer } from './store/todos/todos.reducer';
@@ -56,7 +56,7 @@ import { ROUTES } from './constants/routes';
 
     HomePageComponent,
     CompletedTodosPageComponent,
-    UncompletedTodosPageComponent,
+    ActiveTodosPageComponent,
     AllTodosPageComponent,
   ],
   imports: [
