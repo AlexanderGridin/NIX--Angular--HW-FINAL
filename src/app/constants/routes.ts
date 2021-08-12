@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { AllTodosPageComponent } from '../pages/all-todos-page/all-todos-page.component';
 import { CompletedTodosPageComponent } from '../pages/completed-todos-page/completed-todos-page.component';
 import { HomePageComponent } from '../pages/home-page/home-page.component';
-import { UncompletedTodosPageComponent } from '../pages/uncompleted-todos-page/uncompleted-todos-page.component';
+import { ActiveTodosPageComponent } from '../pages/active-todos-page/active-todos-page.component';
 
 export const ROUTES: Routes = [
   {
@@ -11,7 +11,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'uncompleted-todos',
-    component: UncompletedTodosPageComponent,
+    component: ActiveTodosPageComponent,
   },
   {
     path: 'completed-todos',
