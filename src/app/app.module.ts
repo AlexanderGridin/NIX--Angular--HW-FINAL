@@ -20,7 +20,7 @@ import { TodoStateService } from './services/todo-state/todo-state.service';
 import { TaskService } from './services/task/task.service';
 import { GenerateIdService } from './services/generate-id/generate-id.service';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
-import { TodoDashboardComponent } from './components/todo-dashboard/todo-dashboard.component';
+import { TodosDashboardComponent } from './components/todos-dashboard/todos-dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LogoComponent } from './components/logo/logo.component';
@@ -31,6 +31,8 @@ import { MainNavigationComponent } from './components/main-navigation/main-navig
 import { CompletedTodosPageComponent } from './pages/completed-todos-page/completed-todos-page.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { UncompletedTodosPageComponent } from './pages/uncompleted-todos-page/uncompleted-todos-page.component';
+import { PageContentComponent } from './components/page-content/page-content.component';
+import { AllTodosPageComponent } from './pages/all-todos-page/all-todos-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import { UncompletedTodosPageComponent } from './pages/uncompleted-todos-page/un
     UncompletedTodosListComponent,
     CompletedTodosListComponent,
     AddTodoComponent,
-    TodoDashboardComponent,
+    TodosDashboardComponent,
     HeaderComponent,
     FooterComponent,
     LogoComponent,
@@ -51,6 +53,8 @@ import { UncompletedTodosPageComponent } from './pages/uncompleted-todos-page/un
     CompletedTodosPageComponent,
     UncompletedTodosPageComponent,
     PageTitleComponent,
+    PageContentComponent,
+    AllTodosPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,15 @@
-.logo {
+.logo:link,
+.logo:visited {
   font-family: "Indie Flower", Arial, sans-serif;
   font-size: 2rem;
   line-height: 1.3;
   text-align: center;
   padding: 15px 0;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: underline;
 }
