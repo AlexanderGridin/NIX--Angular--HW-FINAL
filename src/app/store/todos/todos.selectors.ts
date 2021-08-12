@@ -2,8 +2,8 @@ import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { State } from 'src/app/interfaces/state';
 import { Todo } from 'src/app/interfaces/todo';
 
-export namespace TodoSelectors {
-  export const state = createFeatureSelector<State>('todo');
+export namespace TodosSelectors {
+  export const state = createFeatureSelector<State>('todos');
 
   export const getAllTodos = createSelector(
     state,

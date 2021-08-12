@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../interfaces/todo';
-import { TodoService } from 'src/app/services/todo/todo.service';
-import { TodoStateService } from 'src/app/services/todo-state/todo-state.service';
+import { TodosStateService } from 'src/app/services/todos-state/todos-state.service';
 
 @Component({
   selector: 'app-uncompleted-todos-list',
@@ -11,17 +10,14 @@ import { TodoStateService } from 'src/app/services/todo-state/todo-state.service
 export class UncompletedTodosListComponent implements OnInit {
   public todos!: Todo[];
 
-  constructor(
-    private todoServie: TodoService,
-    private todoStateService: TodoStateService
-  ) {}
+  constructor(private todosStateService: TodosStateService) {}
 
   ngOnInit(): void {
     this.getUncompletedTodos();
   }
 
   public getUncompletedTodos(): void {
-    this.todoStateService.getUncomplitedTodos().subscribe({
+    this.todosStateService.getUncomplitedTodos().subscribe({
       next: (todos) => (this.todos = todos),
     });
   }

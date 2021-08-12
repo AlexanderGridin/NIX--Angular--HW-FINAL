@@ -3,20 +3,20 @@ import { Injectable } from '@angular/core';
 import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
 
-import { TaskService } from '../task/task.service';
+import { TasksService } from '../tasks/tasks.service';
 import { GenerateIdService } from '../generate-id/generate-id.service';
 
 @Injectable()
-export class TodoService {
+export class TodosService {
   constructor(
-    private taskService: TaskService,
+    private tasksService: TasksService,
     private generateIdService: GenerateIdService
   ) {}
 
   public createTodoFromFormData(formData: Todo): Todo {
     let tasks: Task[] = [...formData.tasks].map(
       (task: Task, i: number): Task =>
-        this.taskService.createTaskFromFormData(task, i)
+        this.tasksService.createTaskFromFormData(task, i)
     );
 
     let todo: Todo = {

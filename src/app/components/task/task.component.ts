@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from 'src/app/interfaces/task';
-import { TaskService } from 'src/app/services/task/task.service';
+import { TasksService } from 'src/app/services/tasks/tasks.service';
 
 @Component({
   selector: 'app-task',
@@ -12,12 +12,12 @@ export class TaskComponent implements OnInit {
 
   @Output() onChangeIsCompleted: EventEmitter<Task> = new EventEmitter<Task>();
 
-  constructor(private taskService: TaskService) {}
+  constructor(private tasksService: TasksService) {}
 
   ngOnInit(): void {}
 
   public handleIsCompletedChange(): void {
-    let updatedTask: Task = this.taskService.invertIsCompleted(this.task);
+    let updatedTask: Task = this.tasksService.invertIsCompleted(this.task);
     this.onChangeIsCompleted.emit(updatedTask);
   }
 }

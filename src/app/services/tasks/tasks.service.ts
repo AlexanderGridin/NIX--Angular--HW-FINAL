@@ -3,7 +3,7 @@ import { Task } from 'src/app/interfaces/task';
 import { GenerateIdService } from '../generate-id/generate-id.service';
 
 @Injectable()
-export class TaskService {
+export class TasksService {
   constructor(private generateIdService: GenerateIdService) {}
 
   public createTaskFromFormData(formData: Task, taskIndex: number = 0): Task {

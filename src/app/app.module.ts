@@ -4,9 +4,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { RouterModule } from '@angular/router';
 
-import { TodoService } from './services/todo/todo.service';
-import { TodoStateService } from './services/todo-state/todo-state.service';
-import { TaskService } from './services/task/task.service';
+import { TodosService } from './services/todos/todos.service';
+import { TodosStateService } from './services/todos-state/todos-state.service';
+import { TasksService } from './services/tasks/tasks.service';
 import { GenerateIdService } from './services/generate-id/generate-id.service';
 
 import { ROUTES } from './constants/routes';
@@ -33,7 +33,7 @@ import { CompletedTodosPageComponent } from './pages/completed-todos-page/comple
 import { UncompletedTodosPageComponent } from './pages/uncompleted-todos-page/uncompleted-todos-page.component';
 import { AllTodosPageComponent } from './pages/all-todos-page/all-todos-page.component';
 
-import { todoReducer } from './store/todo/todo.reducer';
+import { todosReducer } from './store/todos/todos.reducer';
 
 @NgModule({
   declarations: [
@@ -62,10 +62,10 @@ import { todoReducer } from './store/todo/todo.reducer';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ todo: todoReducer }),
+    StoreModule.forRoot({ todos: todosReducer }),
     RouterModule.forRoot(ROUTES),
   ],
-  providers: [TodoService, TodoStateService, TaskService, GenerateIdService],
+  providers: [TodosService, TodosStateService, TasksService, GenerateIdService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

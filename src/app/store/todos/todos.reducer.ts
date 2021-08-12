@@ -1,30 +1,17 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { TodoActions } from './todo.actions';
+
+import { TodosActions } from './todos.actions';
+
 import { State } from 'src/app/interfaces/state';
 import { Todo } from 'src/app/interfaces/todo';
 
-// TODO: это нужно для теста. Перед сдачей ДЗ убрать!
-const INITIAL_TD: Todo = {
-  title: 'Initial todo',
-  description: 'Initial todo description',
-  tasks: [
-    {
-      title: 'Initial task',
-      isCompleted: false,
-      id: 1628560439037,
-    },
-  ],
-  isCompleted: false,
-  id: 1628560439036,
-};
-
 const initialState: State = {
-  todos: [INITIAL_TD],
+  todos: [],
 };
 
-const _todoReducer = createReducer(
+const _todosReducer = createReducer(
   initialState,
-  on(TodoActions.addTodo, (state: State, { todo }: { todo: Todo }): State => {
+  on(TodosActions.addTodo, (state: State, { todo }: { todo: Todo }): State => {
     let stateTodos: Todo[] = [...state.todos];
     let updatedTodos = [...stateTodos, todo];
 
@@ -35,7 +22,7 @@ const _todoReducer = createReducer(
   }),
 
   on(
-    TodoActions.updateTodo,
+    TodosActions.updateTodo,
     (state: State, { todo }: { todo: Todo }): State => {
       let stateTodos: Todo[] = [...state.todos];
 
@@ -55,7 +42,7 @@ const _todoReducer = createReducer(
   ),
 
   on(
-    TodoActions.removeTodo,
+    TodosActions.removeTodo,
     (state: State, { todo }: { todo: Todo }): State => {
       let stateTodos = [...state.todos];
       let updatedTodos = stateTodos.filter(
@@ -70,6 +57,6 @@ const _todoReducer = createReducer(
   )
 );
 
-export function todoReducer(state: State | undefined, action: Action) {
-  return _todoReducer(state, action);
+export function todosReducer(state: State | undefined, action: Action) {
+  return _todosReducer(state, action);
 }
