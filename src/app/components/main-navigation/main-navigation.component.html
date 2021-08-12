@@ -1,0 +1,29 @@
+<nav class="main-navigation">
+  <ul class="main-navigation__list">
+    <li class="main-navigation__list-item">
+      <a
+        class="main-navigation__link"
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+    </li>
+    <li class="main-navigation__list-item">
+      <a
+        class="main-navigation__link"
+        routerLink="/uncompleted-todos"
+        routerLinkActive="active"
+        >Active todos</a
+      >
+    </li>
+    <li class="main-navigation__list-item">
+      <a
+        class="main-navigation__link"
+        routerLink="/completed-todos"
+        routerLinkActive="active"
+        >Completed todos</a
+      >
+    </li>
+  </ul>
+</nav>

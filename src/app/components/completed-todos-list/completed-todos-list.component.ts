@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/interfaces/todo';
-import { TodoService } from 'src/app/services/todo/todo.service';
 import { TodoStateService } from 'src/app/services/todo-state/todo-state.service';
 
 @Component({
@@ -9,12 +8,9 @@ import { TodoStateService } from 'src/app/services/todo-state/todo-state.service
   styleUrls: ['./completed-todos-list.component.css'],
 })
 export class CompletedTodosListComponent implements OnInit {
-  public todos!: Todo[];
+  public completedTodos!: Todo[];
 
-  constructor(
-    private todoServie: TodoService,
-    private todoStateServices: TodoStateService
-  ) {}
+  constructor(private todoStateServices: TodoStateService) {}
 
   ngOnInit(): void {
     this.getCompoletedTodos();
@@ -22,7 +18,7 @@ export class CompletedTodosListComponent implements OnInit {
 
   public getCompoletedTodos(): void {
     this.todoStateServices.getCompletedTodos().subscribe({
-      next: (todos) => (this.todos = todos),
+      next: (todos) => (this.completedTodos = todos),
     });
   }
 }

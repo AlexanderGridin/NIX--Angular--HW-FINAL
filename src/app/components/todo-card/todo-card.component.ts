@@ -6,11 +6,11 @@ import { TodoStateService } from 'src/app/services/todo-state/todo-state.service
 import { TaskService } from 'src/app/services/task/task.service';
 
 @Component({
-  selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css'],
+  selector: 'app-todo-card',
+  templateUrl: './todo-card.component.html',
+  styleUrls: ['./todo-card.component.css'],
 })
-export class TodoComponent implements OnInit {
+export class TodoCardComponent implements OnInit {
   @Input() todo!: Todo;
 
   @Output() onRemove: EventEmitter<Todo> = new EventEmitter<Todo>();
