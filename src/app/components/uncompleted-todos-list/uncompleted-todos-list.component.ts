@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Todo } from '../../interfaces/todo';
+
 import { TodosStateService } from 'src/app/services/todos-state/todos-state.service';
 
 @Component({
