@@ -19,6 +19,7 @@
   color: #fff;
   text-decoration: none;
   transition: 0.4s;
+  font-size: 1.125rem;
 }
 
 .main-navigation__link:hover,

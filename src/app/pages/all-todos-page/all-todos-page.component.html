@@ -1,4 +1,7 @@
 <app-page-content>
   <app-page-title>All todos</app-page-title>
-  <app-todos-list [todos]="todos"></app-todos-list>
+  <app-todos-list *ngIf="todos.length > 0" [todos]="todos"></app-todos-list>
+  <app-message *ngIf="todos.length === 0"
+    >There are no active or completed todos...</app-message
+  >
 </app-page-content>

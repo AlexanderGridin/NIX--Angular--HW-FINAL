@@ -1,1 +1,7 @@
-<app-todos-list [todos]="completedTodos"></app-todos-list>
+<app-todos-list
+  *ngIf="completedTodos.length > 0"
+  [todos]="completedTodos"
+></app-todos-list>
+<app-message *ngIf="completedTodos.length === 0"
+  >There are no completed todos...</app-message
+>

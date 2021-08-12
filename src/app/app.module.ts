@@ -33,6 +33,7 @@ import { PageTitleComponent } from './components/page-title/page-title.component
 import { UncompletedTodosPageComponent } from './pages/uncompleted-todos-page/uncompleted-todos-page.component';
 import { PageContentComponent } from './components/page-content/page-content.component';
 import { AllTodosPageComponent } from './pages/all-todos-page/all-todos-page.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { AllTodosPageComponent } from './pages/all-todos-page/all-todos-page.com
     PageTitleComponent,
     PageContentComponent,
     AllTodosPageComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,

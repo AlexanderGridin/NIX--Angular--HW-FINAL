@@ -1,0 +1,10 @@
+.message {
+  background-color: #ffcd42;
+  color: #000;
+  padding: 35px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 35px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
