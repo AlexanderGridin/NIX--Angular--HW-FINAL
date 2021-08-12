@@ -18,7 +18,7 @@ export class CompletedTodosListComponent implements OnInit {
 
   constructor(
     private todosStateService: TodosStateService,
-    private cdr: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class CompletedTodosListComponent implements OnInit {
     this.todosStateService.getCompletedTodos().subscribe({
       next: (todos: Todo[]): void => {
         this.completedTodos = todos;
-        this.cdr.detectChanges();
+        this.changeDetectorRef.detectChanges();
       },
     });
   }

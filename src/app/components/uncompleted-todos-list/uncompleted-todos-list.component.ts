@@ -18,7 +18,7 @@ export class UncompletedTodosListComponent implements OnInit {
 
   constructor(
     private todosStateService: TodosStateService,
-    private cdr: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class UncompletedTodosListComponent implements OnInit {
     this.todosStateService.getUncomplitedTodos().subscribe({
       next: (todos: Todo[]): void => {
         this.todos = todos;
-        this.cdr.detectChanges();
+        this.changeDetectorRef.detectChanges();
       },
     });
   }
