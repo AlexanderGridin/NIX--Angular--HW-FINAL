@@ -1,8 +1,8 @@
 .page-title {
-  padding: 25px 15px;
-  margin: 0 0 25px;
-  font-size: 3rem;
-  text-align: center;
-  font-weight: bold;
   background-color: #cdcdcd;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0 25px;
+  padding: 25px 15px;
+  text-align: center;
 }

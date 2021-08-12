@@ -1,17 +1,17 @@
 .task {
-  display: flex;
   align-items: flex-start;
+  display: flex;
 }
 
 .task__status-checkbox {
-  height: 20px;
-  width: 20px;
-  margin-right: 10px;
   appearance: none;
-  border: 2px solid #ddd;
   border-radius: 0;
-  transition: 0.4s;
+  border: 2px solid #ddd;
   flex-shrink: 0;
+  height: 20px;
+  margin-right: 10px;
+  transition: 0.4s;
+  width: 20px;
 }
 
 .task__status-checkbox:hover {
@@ -38,8 +38,8 @@
 }
 
 .task__title:hover {
-  cursor: pointer;
   color: #4a8af4;
+  cursor: pointer;
 }
 
 .task--completed .task__title {

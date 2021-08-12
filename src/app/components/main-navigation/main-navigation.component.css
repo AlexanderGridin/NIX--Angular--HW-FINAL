@@ -3,23 +3,23 @@
 }
 
 .main-navigation__list {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 .main-navigation__link {
+  color: #fff;
   display: inline-block;
+  font-size: 1.125rem;
   padding: 10px 25px;
   position: relative;
-  z-index: 2;
-  color: #fff;
   text-decoration: none;
   transition: 0.4s;
-  font-size: 1.125rem;
+  z-index: 2;
 }
 
 .main-navigation__link:hover,
@@ -28,15 +28,15 @@
 }
 
 .main-navigation__link::before {
+  background-color: #fff;
+  bottom: 0;
   content: "";
   display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   height: 0;
-  background-color: #fff;
-  width: 100%;
+  left: 0;
+  position: absolute;
   transition: 0.4s;
+  width: 100%;
   z-index: -1;
 }
 

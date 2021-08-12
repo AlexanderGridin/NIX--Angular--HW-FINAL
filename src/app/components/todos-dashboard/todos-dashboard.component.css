@@ -1,18 +1,17 @@
 .todo-dashboard {
+  background-color: #4a8af4;
   display: flex;
   justify-content: center;
-  width: 100%;
   margin: auto;
   min-height: 100vh;
-  background-color: #4a8af4;
   padding: 0 10px;
+  width: 100%;
 }
 
 .todo-dashboard__item {
+  background-color: #efefef;
   flex-basis: 50%;
   width: 100%;
-
-  background-color: #efefef;
 }
 
 .todo-dashboard__item + .todo-dashboard__item {
@@ -20,14 +19,14 @@
 }
 
 .todo-dashboard__item-header {
-  padding: 25px 15px;
   background-color: #cdcdcd;
+  padding: 25px 15px;
 }
 
 .todo-dashboard__item-title {
-  text-align: center;
-  margin: 0;
   font-size: 2rem;
+  margin: 0;
+  text-align: center;
 }
 
 .todo-dashboard__item-body {
