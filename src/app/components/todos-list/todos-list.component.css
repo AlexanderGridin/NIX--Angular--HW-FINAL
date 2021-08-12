@@ -1,15 +1,10 @@
-.todo-list {
+.todos-list {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin: 0 -10px;
 }
 
-.todo-list__item {
-  margin: 10px;
-  max-width: 400px;
+.todos-list__item {
+  margin-bottom: 15px;
   width: 100%;
 }

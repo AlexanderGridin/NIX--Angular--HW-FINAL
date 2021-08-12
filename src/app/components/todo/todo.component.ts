@@ -12,7 +12,6 @@ import { TaskService } from 'src/app/services/task/task.service';
 })
 export class TodoComponent implements OnInit {
   @Input() todo!: Todo;
-  @Input() index!: number;
 
   @Output() onRemove: EventEmitter<Todo> = new EventEmitter<Todo>();
 

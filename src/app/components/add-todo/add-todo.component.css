@@ -1,0 +1,87 @@
+.add-todo__body {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 15px;
+  max-width: 450px;
+  width: 100%;
+  z-index: 2;
+}
+
+.add-todo__actions {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.add-todo-form-visibility-toggler {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  transition: 0.4s;
+  font-size: 0;
+}
+
+.add-todo-form-visibility-toggler:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.add-todo-form-visibility-toggler::before {
+  font-size: 2rem;
+}
+
+.add-todo-form-visibility-toggler.add-todo-form-hidden::before {
+  content: "\002B";
+}
+
+.add-todo-form-visibility-toggler.add-todo-form-hidden {
+  border: 2px solid #20a464;
+  background-color: #20a464;
+}
+
+.add-todo-form-visibility-toggler.add-todo-form-hidden:hover {
+  background-color: #fff;
+  color: #20a464;
+}
+
+.add-todo-form-visibility-toggler.add-todo-form-visible::before {
+  content: "\2A09";
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.add-todo-form-visibility-toggler.add-todo-form-visible {
+  border: 2px solid #dd5044;
+  background-color: #dd5044;
+}
+
+.add-todo-form-visibility-toggler.add-todo-form-visible:hover {
+  background-color: #fff;
+  color: #dd5044;
+}
+
+.add-todo-form-visibility-background-toggler {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 0;
+  transition: 0.4s;
+}
+
+.add-todo-form-visibility-background-toggler:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+}

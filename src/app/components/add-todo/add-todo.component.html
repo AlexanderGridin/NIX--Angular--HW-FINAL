@@ -1,0 +1,26 @@
+<div class="add-todo">
+  <div class="add-todo__body">
+    <app-add-todo-form *ngIf="isVisibleAddTodoForm"></app-add-todo-form>
+
+    <div class="add-todo__actions">
+      <button
+        class="add-todo-form-visibility-toggler"
+        [ngClass]="{
+          'add-todo-form-visible': isVisibleAddTodoForm,
+          'add-todo-form-hidden': !isVisibleAddTodoForm
+        }"
+        (click)="toggleAddTodoFormVisibility()"
+      >
+        Toggle add todo form
+      </button>
+    </div>
+  </div>
+
+  <button
+    *ngIf="isVisibleAddTodoForm"
+    class="add-todo-form-visibility-background-toggler"
+    (click)="toggleAddTodoFormVisibility()"
+  >
+    Toggle add todo form
+  </button>
+</div>

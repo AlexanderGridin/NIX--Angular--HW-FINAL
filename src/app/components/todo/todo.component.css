@@ -3,13 +3,15 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 45px 15px 25px;
-  max-width: 400px;
   width: 100%;
   position: relative;
+  background-color: #fff;
 }
 
 .todo--completed {
-  border: 1px solid #20a464;
+  border: 1px solid rgba(32, 164, 100, 0.5);
+  background-color: rgba(32, 164, 100, 0.5);
+  color: #fff;
 }
 
 .todo--completed .todo__header,

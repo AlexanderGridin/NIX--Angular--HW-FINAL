@@ -17,6 +17,8 @@ import { CompletedTodosListComponent } from './components/completed-todos-list/c
 import { TodoStateService } from './services/todo-state/todo-state.service';
 import { TaskService } from './services/task/task.service';
 import { GenerateIdService } from './services/generate-id/generate-id.service';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { TodoDashboardComponent } from './components/todo-dashboard/todo-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { GenerateIdService } from './services/generate-id/generate-id.service';
     TaskComponent,
     UncompletedTodosListComponent,
     CompletedTodosListComponent,
+    AddTodoComponent,
+    TodoDashboardComponent,
   ],
   imports: [
     BrowserModule,

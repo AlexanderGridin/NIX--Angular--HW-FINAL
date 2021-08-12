@@ -1,13 +1,16 @@
-.add-todo {
-  max-width: 400px;
+.add-todo-form {
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   font-family: "Montserrat", Arial, sans-serif;
+  background-color: #fff;
+  max-height: 702px;
+  overflow: auto;
 }
 
-.add-todo__title {
+.add-todo-form__title {
   text-align: center;
   margin-bottom: 15px;
 }
@@ -74,15 +77,10 @@
   border-bottom: 2px solid #ddd;
 }
 
-.add-todo-form.ng-untouched.ng-submitted.ng-invalid
+.add-todo-form__form.ng-untouched.ng-submitted.ng-invalid
   .add-todo-form__text-input.ng-invalid {
   border-bottom: 2px solid #dd5044;
 }
-
-/* .add-todo-form.ng-submitted.ng-untouched.ng-pristine
-  .add-todo-form__text-input.ng-invalid {
-  border-bottom: 2px solid #ddd;
-} */
 
 .add-todo-form__text-input:hover,
 .add-todo-form__text-input:focus {
