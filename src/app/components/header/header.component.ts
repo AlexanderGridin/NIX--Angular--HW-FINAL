@@ -8,4 +8,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class HeaderComponent {
   constructor() {}
+
+  public checkCDS(): void {
+    console.log('HeaderComponent change detection');
+  }
 }

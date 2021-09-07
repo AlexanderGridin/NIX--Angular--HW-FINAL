@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  EventEmitter,
-  Output,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { Todo } from 'src/app/interfaces/todo';
 import { Task } from 'src/app/interfaces/task';
@@ -21,8 +15,6 @@ import { TasksService } from 'src/app/services/tasks/tasks.service';
 })
 export class TodoCardComponent {
   @Input() todo!: Todo;
-
-  @Output() onRemove: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   constructor(
     private todosService: TodosService,
