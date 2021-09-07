@@ -8,6 +8,7 @@ import { TodosService } from './services/todos/todos.service';
 import { TodosStateService } from './services/todos-state/todos-state.service';
 import { TasksService } from './services/tasks/tasks.service';
 import { GenerateIdService } from './services/generate-id/generate-id.service';
+import { TodosLocalStorageService } from './services/todos-local-storage/todos-local-storage.service';
 
 import { AppComponent } from './app.component';
 import { TodoCardComponent } from './components/todo-card/todo-card.component';
@@ -65,7 +66,13 @@ import { ROUTES } from './constants/routes';
     StoreModule.forRoot({ todos: todosReducer }),
     RouterModule.forRoot(ROUTES),
   ],
-  providers: [TodosService, TodosStateService, TasksService, GenerateIdService],
+  providers: [
+    TodosService,
+    TodosStateService,
+    TasksService,
+    GenerateIdService,
+    TodosLocalStorageService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
